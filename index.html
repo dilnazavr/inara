@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Қырқынан шығару — Инара</title>
+  <meta name="description" content="Празднование 40 дней с рождения Инары — приглашаем близких разделить радость.">
+  <style>
+    :root{
+      --bg:#fff9f9;
+      --card:#ffffff;
+      --text:#2a2a2a;
+      --muted:#6f6f6f;
+      --accent:#f7c8d0; /* розовый пастель */
+      --accent2:#f1e3c6; /* нежный золотистый */
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:20px;
+    }
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text);}
+    .container{max-width:1060px;margin:0 auto;padding:20px}
+    header{position:sticky;top:0;background:rgba(255,255,255,.75);backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid rgba(0,0,0,.06);z-index:50}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    nav .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand-badge{width:28px;height:28px;border-radius:50%;background:linear-gradient(120deg,var(--accent),var(--accent2));box-shadow:var(--shadow)}
+    nav a{padding:10px 14px;border-radius:999px;text-decoration:none;color:var(--text)}
+    nav a:hover{background:rgba(0,0,0,.05)}
+
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:48px 0}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .p24{padding:24px}
+    h1{font-size:40px;line-height:1.1;margin:0 0 12px}
+    h2{font-size:28px;line-height:1.2;margin:0 0 10px}
+    p{line-height:1.7}
+    .tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#333;background:linear-gradient(120deg,var(--accent),var(--accent2));padding:8px 12px;border-radius:999px}
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .muted{color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:#111;color:#fff;border:none;border-radius:14px;padding:12px 16px;font-weight:600;text-decoration:none;cursor:pointer}
+    .btn.secondary{background:#fff;color:#111;border:1px solid rgba(0,0,0,.1)}
+    .pill{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(0,0,0,.05)}
+    .section{padding:28px 0}
+
+    .countdown{display:flex;gap:10px;flex-wrap:wrap}
+    .timebox{flex:1 1 90px;min-width:90px;text-align:center;background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:14px}
+    .timebox .num{font-size:26px;font-weight:700}
+    .timebox .lbl{font-size:12px;color:var(--muted)}
+
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .ph{aspect-ratio:1/1;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:.25}
+
+    footer{padding:40px 0;color:var(--muted)}
+    .footerbar{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      h1{font-size:34px}
+      h2{font-size:24px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand"><span class="brand-badge" aria-hidden="true"></span> Инара — 40 дней</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <a href="#details">Детали</a>
+          <a href="#about">О событии</a>
+          <a href="#gallery">Галерея</a>
+          <a href="#rsvp">Подтверждение</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="card p24">
+        <span class="tag">Праздник семьи</span>
+        <h1>Қырқынан шығару Инары</h1>
+        <p class="muted">Приглашаем вас отметить 40 дней с рождения нашей доченьки.</p>
+        <div class="grid grid-2" style="margin:14px 0 8px">
+          <div class="card p24">
+            <div class="muted">Дата рождения</div>
+            <div style="font-weight:700">26.07.2025</div>
+          </div>
+          <div class="card p24">
+            <div class="muted">Празднование</div>
+            <div style="font-weight:700">07.09.2025</div>
+          </div>
+        </div>
+        <div class="grid grid-2" style="margin-bottom:12px">
+          <div class="card p24">
+            <div class="muted">Место</div>
+            <div style="font-weight:700">Жаңақоныс-2, 260 уч</div>
+          </div>
+          <div class="card p24">
+            <div class="muted">Родители</div>
+            <div style="font-weight:700">Бауржан и Жанар</div>
+          </div>
+        </div>
+        <div class="countdown" id="countdown" aria-live="polite" title="До праздника"></div>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <a class="btn" href="#rsvp">Подтвердить участие</a>
+          <button class="btn secondary" id="copyAddr" type="button">Скопировать адрес</button>
+        </div>
+      </div>
+      <div class="card" aria-hidden="true">
+        <div style="aspect-ratio:4/5;border-radius:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:.4"></div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section id="details" class="section">
+      <div class="grid grid-3">
+        <div class="card p24">
+          <div class="muted">Когда</div>
+          <h2>07 сентября 2025</h2>
+          <p class="muted">Время уточняется</p>
+        </div>
+        <div class="card p24">
+          <div class="muted">Где</div>
+          <h2>Жаңақоныс-2, 260 уч</h2>
+          <p class="muted">Нажмите Скопировать адрес или откройте карту ниже</p>
+        </div>
+        <div class="card p24">
+          <div class="muted">Контакты</div>
+          <p style="margin:.5rem 0 0">Бауыржан: <span class="pill">телефон</span></p>
+          <p style="margin:.5rem 0 0">Жанар: <span class="pill">телефон</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="card p24">
+        <h2>О событии</h2>
+        <p>Қырқынан шығару — тёплая семейная традиция, отмечаемая на 40-й день после рождения ребёнка. Это символ заботы, благополучия и благодарности. Мы рады разделить этот день с близкими и друзьями.</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section">
+      <div class="card p24">
+        <h2>Галерея</h2>
+        <div class="gallery">
+          <div class="ph"></div>
+          <div class="ph"></div>
+          <div class="ph"></div>
+          <div class="ph"></div>
+        </div>
+        <p class="muted" style="margin-top:8px">Замените плейсхолдеры на фотографии Инары</p>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="section">
+      <div class="card p24">
+        <h2>Подтверждение участия</h2>
+        <p>Напишите нам в WhatsApp. Сообщение сформируется автоматически.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" id="waBaurzhan" href="#">Написать Бауыржану</a>
+          <a class="btn" id="waZhanar" href="#">Написать Жанар</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map hint (optional) -->
+    <section class="section">
+      <div class="card p24">
+        <h2>Как добраться</h2>
+        <p class="muted">Вставьте ссылку на карту Яндекс или Google ниже, чтобы гостям было проще найти адрес.</p>
+        <div class="pill" id="mapLink">Ссылка на карту</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footerbar">
+      <div>С любовью, Бауржан и Жанар</div>
+      <div>© 2025</div>
+    </div>
+  </footer>
+
+  <script>
+    // Countdown до 07.09.2025 12:00 по местному времени
+    const target = new Date('2025-09-07T12:00:00');
+    const cd = document.getElementById('countdown');
+    const units = [ ['Дней', 24*60*60*1000], ['Часов', 60*60*1000], ['Минут', 60*1000], ['Секунд', 1000] ];
+    function renderCountdown(){
+      const now = new Date();
+      let ms = target - now;
+      if(ms < 0){ cd.innerHTML = '<div class="pill">Праздник уже идёт или завершился</div>'; return; }
+      const parts = units.map(([label,span])=>{
+        const value = Math.floor(ms / span); ms -= value * span;
+        return `<div class="timebox"><div class="num">${value}</div><div class="lbl">${label}</div></div>`;
+      }).join('');
+      cd.innerHTML = parts;
+    }
+    renderCountdown();
+    setInterval(renderCountdown,1000);
+
+    // Копирование адреса
+    document.getElementById('copyAddr').addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText('Жаңақоныс-2, 260 уч');
+        alert('Адрес скопирован');
+      }catch(e){ alert('Скопируйте: Жаңақоныс-2, 260 уч'); }
+    });
+
+    // Настройка WhatsApp ссылок — замените номера на реальные в формате 7XXXXXXXXXX
+    const msg = encodeURIComponent('Салеметсіз бе! Подтверждаю участие на Қырқынан шығару Инары. Кездескенше!');
+    const phoneB = '7XXXXXXXXXX';
+    const phoneJ = '7YYYYYYYYYY';
+    document.getElementById('waBaurzhan').href = `https://wa.me/${phoneB}?text=${msg}`;
+    document.getElementById('waZhanar').href = `https://wa.me/${phoneJ}?text=${msg}`;
+
+    // Ссылка на карту — замените на реальную
+    document.getElementById('mapLink').textContent = 'Добавьте ссылку на карту';
+  </script>
+</body>
+</html>
