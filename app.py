@@ -4,11 +4,12 @@ import os  # <- обязательно импорт
 
 app = Flask(__name__)
 
-# Используем переменную окружения Render
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://inara_user:umdAyKaHjQ2az04ZkGTKHVmS3z65vCaC@dpg-d2r0ejje5dus73cm6bc0-a/inara?sslmode=require"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# --- Инициализация базы ---
 db = SQLAlchemy(app)
+
 
 class Guest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
