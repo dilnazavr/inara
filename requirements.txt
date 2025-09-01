@@ -1,4 +1,4 @@
-flask
-flask_sqlalchemy
-psycopg2-binary
+Flask
+Flask_SQLAlchemy
 gunicorn
+psycopg2-binary
