@@ -1,0 +1,139 @@
+:root{
+  --bg:#fff9f9;
+  --card:#ffffff;
+  --text:#2a2a2a;
+  --muted:#6f6f6f;
+  --accent:#f7c8d0;
+  --accent2:#f1e3c6;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --radius:20px;
+}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text);}
+.container{max-width:1060px;margin:0 auto;padding:20px}
+header{position:sticky;top:0;background:rgba(255,255,255,.75);backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid rgba(0,0,0,.06);z-index:50}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+nav .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.brand-badge{width:28px;height:28px;border-radius:50%;background:linear-gradient(120deg,var(--accent),var(--accent2));box-shadow:var(--shadow)}
+nav a{padding:10px 14px;border-radius:999px;text-decoration:none;color:var(--text)}
+nav a:hover{background:rgba(0,0,0,.05)}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:48px 0}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
+.p24{padding:24px}
+h1{font-size:40px;line-height:1.1;margin:0 0 12px}
+h2{font-size:28px;line-height:1.2;margin:0 0 10px}
+p{line-height:1.7}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#333;background:linear-gradient(120deg,var(--accent),var(--accent2));padding:8px 12px;border-radius:999px}
+.grid{display:grid;gap:16px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:#111;color:#fff;border:none;border-radius:14px;padding:12px 16px;font-weight:600;text-decoration:none;cursor:pointer}
+.btn.secondary{background:#fff;color:#111;border:1px solid rgba(0,0,0,.1)}
+.pill{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(0,0,0,.05)}
+.section{padding:28px 0}
+
+.countdown{display:flex;gap:10px;flex-wrap:wrap}
+.timebox{flex:1 1 90px;min-width:90px;text-align:center;background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:14px}
+.timebox .num{font-size:26px;font-weight:700}
+.timebox .lbl{font-size:12px;color:var(--muted)}
+
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ph{aspect-ratio:1/1;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:.25}
+
+footer{padding:40px 0;color:var(--muted)}
+.footerbar{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:34px}
+  h2{font-size:24px}
+}
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.map-link:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* Секция RSVP */
+#rsvp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+#rsvp .card {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* Заголовок */
+#rsvp h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Поля ввода */
+#rsvp input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+#rsvp input[type="text"]:focus {
+  border-color: #f39c12; /* красивый акцентный цвет */
+  outline: none;
+}
+
+/* Радио-кнопки */
+#rsvp label {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#rsvp input[type="radio"] {
+  margin-right: 6px;
+}
+
+/* Кнопка */
+#rsvp .btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#rsvp .btn:hover {
+  background: var(--accent2);
+  color: var(--text);
+}

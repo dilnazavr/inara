@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Инара - қырқынан шығару</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand"><span class="brand-badge" aria-hidden="true"></span> Инара — қырқынан шығаруға шақыру</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <a href="#details">Толығырақ</a>
+          <a href="#about">Дәстүр жайлы</a>
+          <a href="#rsvp">Растау</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="card p24">
+        <h1>Инараны қырқынан шығару</h1>
+        <p class="muted">Сіз(дер)ді қызымыз Инараның қырқынан шығаруға арналған ақ дастарханымыздың қонағы болуға шақырамыз!</p>
+        <div class="grid grid-2" style="margin:14px 0 8px">
+          <div class="card p24">
+            <div class="muted">Уақыты</div>
+            <div style="font-weight:700">07 қырқүйек, 2025 жылы сағат 14:00 </div>
+          </div>
+        </div>
+        <div class="grid grid-2" style="margin-bottom:12px">
+          <div class="card p24">
+            <div class="muted">Мекен-жайымыз:</div>
+            <div style="font-weight:700">Ақтөбе қаласы, жилмассив Жаңақоныс-2, уч.260</div>
+          </div>
+          <div class="card p24">
+            <div class="muted">Ізгі ниетпен: </div>
+            <div style="font-weight:700">Әкесі Бауржан және анасы Жанар</div>
+          </div>
+        </div>
+        <div class="countdown" id="countdown" aria-live="polite" title="До праздника"></div>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <a class="btn" href="#rsvp">Келемін!</a>
+          <button class="btn secondary" id="copyAddr" type="button">скопировать адрес</button>
+        </div>
+      </div>
+      <div class="card">
+<img src="{{ url_for('static', filename='image/inara.jpg') }}" 
+     alt="Инара" 
+     style="width:100%;height:auto;border-radius:20px;object-fit:cover">
+
+      </div>      
+    </section>
+
+    <!-- Details -->
+<section id="details" class="section">
+  <div class="grid grid-2">
+    <div class="card p24">
+      <div class="muted">Қашан</div>
+      <h2>07 қырқүйек 2025</h2>
+      <h2>14:00</h2>
+    </div>
+    <div class="card p24">
+      <div class="muted">Қайда</div>
+      <h2>Ақтөбе қаласы, жилмассив Жаңақоныс-2, уч.260</h2>
+      <p class="muted">Мекенжайды төмендегі картадан ашыңыз</p>
+    </div>
+  </div>
+</section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="card p24">
+        <h2>Дәстүр жайлы</h2>
+        <p>Қырқынан шығару – нәресте дүниеге келгеннен кейінгі қырық күн өткен соң өткізілетін жылы да тағылымды отбасылық дәстүр. Бұл рәсім қамқорлықтың, амандықтың әрі шексіз алғыстың белгісі болып саналады. Осы қуанышты сәтімізді жақындарымызбен және достарымызбен бірге атап өтетінімізге қуаныштымыз.</p>
+      </div>
+    </section>
+
+
+    <!-- RSVP -->
+    <section id="rsvp" class="section">
+      <div class="card p24">
+        <h2>Келуіңізді растаңыз</h2>
+        <form action="/add_guest" method="POST" style="margin-top:1rem">
+          <input type="text" name="name" placeholder="Атыңыз" required>
+          <input type="text" name="phone" placeholder="Телефон" required>
+          <input type="text" name="relation" placeholder="Кем болып келесіз (дос, туыс...)" required>
+          <div style="margin:10px 0">
+            <label><input type="radio" name="attending" value="yes" required> Келемін</label>
+            <label style="margin-left:10px"><input type="radio" name="attending" value="no" required> Келмеймін</label>
+          </div>
+          <button class="btn" type="submit">Жіберу</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Map hint -->
+<section class="section">
+  <div class="card p24">
+    <h2>Как добраться</h2>
+    <a href="https://2gis.kz/aktobe/geo/70030076289231847/57.037567%2C50.282571?m=57.037532%2C50.282394%2F18.92" 
+       target="_blank" 
+       class="map-link">
+      📍 Открыть карту
+    </a>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    <div class="container footerbar">
+      <div>Ізгі тілекпен, Бауржан мен Жанар</div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
