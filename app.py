@@ -13,6 +13,7 @@ db = SQLAlchemy(app)
 
 # --- Модель таблицы Guest ---
 class Guest(db.Model):
+    __tablename__ = 'guest'  # <- явно задаем имя таблицы
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(150), nullable=False)
     phone = db.Column(db.String(50), nullable=False)
@@ -33,7 +34,7 @@ def add_guest():
     name = request.form['name']
     phone = request.form['phone']
     relation = request.form['relation']
-    attending = request.form.get('attending') == "yes"  # защита на случай пустого значения
+    attending = request.form.get('attending') == "yes"
 
     new_guest = Guest(name=name, phone=phone, relation=relation, attending=attending)
     db.session.add(new_guest)
@@ -44,5 +45,5 @@ def add_guest():
 # --- Создание таблиц при первом запуске ---
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()  # <-- это создаст таблицу Guest в базе Render
+        db.create_all()  # <-- это создаст таблицу guest
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
